@@ -19,16 +19,20 @@
 var webpack = require('webpack');
 var path = require('path');
 
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = {
     mode: "development",
-    entry: "./src/index.js",
+    entry: "./src/IString.js",
     output: {
         path: path.resolve(__dirname, 'lib'),
-        filename: "ilib-common-web.js",
-        library: "ilibCommon"
+        filename: "ilib-string-web.js",
+        library: "ilibstring"
     },
     externals: {
-        'ilib-locale': 'Locale'
+        'ilib-locale': 'Locale',
+        'ilib-common': 'ilibCommon',
+        'ilib-env': 'ilibEnv'
     },
     module: {
         rules: [
@@ -43,6 +47,18 @@ module.exports = {
                     }
                 }
             }
+        ]
+    },
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                sourceMap: true,
+                uglifyOptions: {
+                    output: {
+                        comments: false,
+                    }
+                }
+            })
         ]
     }
 };

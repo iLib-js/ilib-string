@@ -8,5 +8,7 @@
 			"corejs": false,
 			"version": "7.0.0-beta.0"
 		}
-	],"add-module-exports"]
+	],"add-module-exports"],
+	"comments": false,
+	"compact": true
 }
