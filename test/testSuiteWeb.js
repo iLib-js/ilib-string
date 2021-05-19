@@ -1,6 +1,6 @@
 /*
- * testSuiteFiles.js - list the test files in this directory
- * 
+ * testSuite.js - test suite for this directory
+ *
  * Copyright © 2021, JEDLSoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +17,13 @@
  * limitations under the License.
  */
 
-module.exports.files = [
-    "teststrings.js",
-    "teststrings-es6.js"
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import * as teststringses6 from './teststrings-es6.js';
+
+const tests = [
+    require('./teststrings.js'),
+    teststringses6
 ];
+
+export default tests;

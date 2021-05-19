@@ -17,6 +17,8 @@
  * limitations under the License.
  */
 
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import { getPlatform } from 'ilib-env';
 import { Utils, MathUtils, JSUtils } from 'ilib-common';
 
