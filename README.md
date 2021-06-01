@@ -17,7 +17,7 @@ yarn add ilib-string
 The IString class is designed to be a drop-in replacement for the intrinsic
 Javascript String class.
 
-Full documentation: [IString class](./docs/IString.html)
+Full documentation: [IString class](./docs/ilibIString.md)
 
 The String class does not allow subclassing, so the
 IString class is a delegate class that delegates most of its methods to an
