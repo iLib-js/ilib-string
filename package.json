@@ -1,0 +1,104 @@
+{
+    "name": "ilib-string",
+    "version": "1.0.0",
+    "main": "./lib/IString.js",
+    "module": "./src/IString.js",
+    "description": "A formattable string implementation. iLib is a cross-engine library of internationalization (i18n) classes written in pure JS",
+    "keywords": [
+        "internationalization",
+        "i18n",
+        "localization",
+        "l10n",
+        "globalization",
+        "g11n",
+        "date",
+        "time",
+        "format",
+        "locale",
+        "translation"
+    ],
+    "homepage": "https://github.com/iLib-js/ilib-string",
+    "bugs": "https://github.com/iLib-js/ilib-string/issues",
+    "email": "marketing@translationcircle.com",
+    "license": "Apache-2.0",
+    "author": {
+        "name": "Edwin Hoogerbeets",
+        "web": "http://www.translationcircle.com/",
+        "email": "edwin@translationcircle.com"
+    },
+    "contributors": [
+        {
+            "name": "Edwin Hoogerbeets",
+            "email": "ehoogerbeets@gmail.com"
+        },
+        {
+            "name": "Goun Lee",
+            "email": "goun.lee@lge.com"
+        }
+    ],
+    "files": [
+        "src",
+        "lib",
+        "docs",
+        "README.md",
+        "LICENSE"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:iLib-js/iLib-string.git"
+    },
+    "scripts": {
+        "build": "npm run build:prod",
+        "build:prod": "grunt babel --mode=prod",
+        "build:dev": "grunt babel --mode=dev",
+        "build:web": "webpack-cli",
+        "build:test": "webpack-cli --config webpack-test.config.js",
+        "generate": "node generate.js",
+        "dist": "npm run doc ; npm run build:prod ; npm run build:web; npm pack",
+        "test": "LANG=en_US.UTF8 npm run build:dev ; node test/testSuite.js",
+        "testall": "LANG=en_US.UTF8 npm run test; npm run build:test ; open-cli ./test/testSuite.html ; open-cli ./test/testSuite.html -- firefox",
+        "debug": "npm run build:dev ; node --inspect-brk test/testSuite.js",
+        "clean": "git clean -f -d *",
+        "doc": "mkdir -p docs ; jsdoc2md -c jsdoc.json --separators --source src/* -m table > docs/ilibIString.md",
+        "doc:html": "jsdoc -c jsdoc.json"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.14.3",
+        "@babel/plugin-transform-regenerator": "^7.13.15",
+        "@babel/preset-env": "^7.14.4",
+        "@babel/register": "^7.13.16",
+        "acorn": "^6.4.1",
+        "acorn-jsx": "^5.2.0",
+        "add-module-exports-webpack-plugin": "^2.0.0",
+        "assertextras": "^1.1.0",
+        "babel-loader": "^8.2.2",
+        "babel-plugin-add-module-exports": "^1.0.4",
+        "babel-plugin-uglify": "^1.0.2",
+        "cldr-core": "^38.1.0",
+        "cldr-misc-full": "^38.1.0",
+        "cldr-numbers-full": "^38.1.0",
+        "docdash": "^1.2.0",
+        "grunt": "^1.4.1",
+        "grunt-babel": "^8.0.0",
+        "grunt-cli": "^1.4.3",
+        "grunt-contrib-clean": "^2.0.0",
+        "grunt-contrib-jshint": "^2.1.0",
+        "grunt-contrib-nodeunit": "^2.1.0",
+        "grunt-contrib-uglify": "^4.0.1",
+        "jsdoc": "^3.6.7",
+        "jsdoc-to-markdown": "^7.0.1",
+        "load-grunt-tasks": "^5.1.0",
+        "nodeunit": "^0.11.3",
+        "open-cli": "^6.0.1",
+        "regenerator-runtime": "^0.13.7",
+        "terser-webpack-plugin": "^5.1.3",
+        "webpack": "^5.38.1",
+        "webpack-cli": "^4.6.0"
+    },
+    "dependencies": {
+        "core-js": "^3.13.1",
+        "ilib-common": "^1.0.1",
+        "ilib-env": "^1.0.0",
+        "ilib-locale": "^1.0.1"
+    }
+}
